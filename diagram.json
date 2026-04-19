@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Sittinon (modified)",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp1", "top": 62.3, "left": -293, "attrs": {} },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": -145.73,
+      "left": -47.92,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -82.89,
+      "left": 196.26,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 183.86,
+      "left": 154.06,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp1:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp1:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp1:GND.1", "black", [ "v28.8", "h-76.8", "v-76.8" ] ],
+    [ "lcd1:CS", "esp1:D5", "orange", [ "v0" ] ],
+    [ "lcd1:D/C", "esp1:D15", "gold", [ "v0" ] ],
+    [ "lcd1:MOSI", "esp1:D23", "violet", [ "v105.6", "h-124.8", "v-144" ] ],
+    [ "lcd1:SCK", "esp1:D18", "white", [ "v115.2", "h-144", "v-86.4" ] ],
+    [ "esp1:D19", "lcd1:MISO", "magenta", [ "h57.6", "v105.6", "h172.8" ] ],
+    [ "esp1:D22", "lcd1:SCL", "yellow", [ "h48", "v163.2", "h192" ] ],
+    [ "esp1:D21", "lcd1:SDA", "cyan", [ "h38.4", "v144", "h211.2" ] ],
+    [ "r1:2", "led1:A", "green", [ "h8.4", "v-230.4" ] ],
+    [ "esp1:GND.1", "led1:C", "black", [ "v0", "h86.4", "v76.8", "h278.4" ] ],
+    [ "esp1:D17", "r1:1", "green", [ "h0" ] ],
+    [ "lcd1:VCC", "esp1:3V3", "red", [ "v0" ] ],
+    [ "esp1:D14", "r1:1", "green", [ "h-28.8", "v115.3", "h441.6", "v-105.6" ] ]
+  ],
+  "dependencies": {}
+}
